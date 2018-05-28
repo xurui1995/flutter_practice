@@ -36,3 +36,59 @@ class TapboxAState extends State<TapboxA>{
       );
   }
 }
+
+
+class CustomPainterSample extends CustomPainter {
+
+  double progress;
+
+  CustomPainterSample({this.progress: 0.0});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint p = new Paint();
+    p.color = Colors.green;
+    p.isAntiAlias = true;
+    p.style = PaintingStyle.fill;
+    canvas.drawCircle(size.center(const Offset(0.0, 0.0)), size.width / 2 * progress, p);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
+}
+
+class SquareFragmentState extends State<SquareFragment> with TickerProviderStateMixin{
+  double progress = 0.0;
+  @override
+  void initState() {
+    AnimationController ac = new AnimationController(
+        vsync: this,
+        duration: const Duration(milliseconds: 10000)
+    );
+    ac.addListener(() {
+      this.setState(() {
+        this.progress = ac.value;
+      });
+    });
+    ac.forward();
+  }
+  @override
+  build(BuildContext context) {
+    return new Container(
+      color: Colors.white,
+      child: new CustomPaint(
+        painter: new CustomPainterSample(progress: this.progress),
+      ),
+    );
+  }
+  
+}
+
+class SquareFragment extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    return new SquareFragmentState();
+  }
+}
