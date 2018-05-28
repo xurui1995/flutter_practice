@@ -72,11 +72,14 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
         ''',
           softWrap: true,
         ));
-
-    return new MaterialApp(
+      return new MaterialApp(
+        title: "hello world",
+        home: new TutorialHome(),
+      );
+/*    return new MaterialApp(
       title: "My APP",
       home: new MyScaffold(),
-    );
+    );*/
 /*    return new Container(
         color: Colors.white,
         child: new SquareFragment()
