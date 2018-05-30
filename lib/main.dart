@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'test.dart';
+import 'test2.dart';
 
 void main() => runApp(new MyApp());
 
@@ -72,7 +73,9 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
         ''',
           softWrap: true,
         ));
-    return new MaterialApp(
+
+      return new SampleApp();
+/*    return new MaterialApp(
       title: "Shopping APP",
       home: new ShoppingList(
         products: [
@@ -81,7 +84,7 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
           new Product(name:"Chocolate chips"),
         ],
       ),
-    );
+    );*/
 
 /*    return new MaterialApp(
       title: "hello world",
